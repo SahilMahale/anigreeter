@@ -1,5 +1,5 @@
 # AniGreeter
-A `fortune` inspired CLI utility that generates anime quotes either:
+A [fortune ](https://en.wikipedia.org/wiki/Fortune_(Unix)) inspired CLI utility that generates anime quotes either:
   1. Randomly
   2. Based on an anime
   3. Based on a Character
