@@ -44,6 +44,7 @@ ln -s <abs-path>/worker.pl $HOME/.local/bin/animequotes
 ## Cowsay integration
 1. Install `cowsay` 
 2. After that you can copy over the `cowsay sprites` in sprites folder to `/usr/share/cowsay/site-cows/`
-3. Usage: `animequote -c naruto | cowsay -f naruto`
+   - For **macOS** sometimes its stored in `homebrew/Cellar`, Please execute `cowsay -l` it will tell you where the sprites folderis located 
+4. Usage: `animequote -c naruto | cowsay -f naruto`
 > Supported characters
 > 1. Naruto
