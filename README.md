@@ -29,4 +29,9 @@ ln -s <abs-path>/worker.pl $HOME/.local/bin
 ./animequote.pl -a one piece
 ./animequote.pl -c light
 ```
+## Cowsay integration
+1. Install `cowsay` 
+2. After that you can copy over the `cowsay sprites` in sprites folder to `/usr/share/cowsay/site-cows/`
 
+> [!important] Supported characters
+> 1. Naruto

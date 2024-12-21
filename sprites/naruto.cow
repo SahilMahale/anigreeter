@@ -1,0 +1,55 @@
+# 17
+# by <authorName>
+# Generated with Charc0al's cowsay file converter http://charc0al.github.io/cowsay-files/converter
+
+$x = "\e[49m  ";          #reset color
+$t = "$thoughts ";
+$a = "\e[48;5;130m  ";
+$b = "\e[48;5;172m  ";
+$c = "\e[48;5;214m  ";
+$d = "\e[48;5;220m  ";
+$e = "\e[48;5;235m  ";
+$f = "\e[48;5;252m  ";
+$g = "\e[48;5;231m  ";
+$h = "\e[48;5;233m  ";
+$i = "\e[48;5;216m  ";
+$j = "\e[48;5;173m  ";
+$k = "\e[48;5;124m  ";
+$l = "\e[48;5;196m  ";
+$m = "\e[48;5;237m  ";
+$n = "\e[48;5;234m  ";
+
+$the_cow = <<EOC
+          $t
+            $t
+              $t
+                $t
+                  $t
+
+                          $a$x$a$x  $a$x
+                  $a  $b$a$b$a  $b$a  $x
+                  $c  $b    $a$d$b$a$b$a$x
+                  $a$c  $b$c$d$c    $b$a$x
+                  $a$b$c          $b    $a$x
+                $e$d  $c$e$f  $e$f  $e$b$a$x
+              $e      $d$e$g$e  $g  $e  $a$x
+                $e                      $x
+              $e  $h$i$j              $h$x
+              $e$x$h$i$h$j$h$j$i$j$h$j$h$x
+            $h          $j$h$j$i$j$h$j$h    $x
+          $h  $k  $h$l  $m$j        $n$l$h$k$h$x
+          $h  $k$h  $l    $m        $l  $h$k$h$x
+            $h    $l  $h$l  $h$e$h$l    $h    $x
+              $h  $l  $h$l  $h$e$h$l$h$l$h  $x
+                $h    $l    $h$e$h$l  $h    $x
+                $h$j$h$l  $h  $e$h  $l$h$j$h$x
+                $h  $l  $h  $b$h$b$h$l  $h$x
+                $h$l  $h$j$e$h  $e$j$h    $x
+                  $h          $x$h      $x
+
+
+
+
+
+
+EOC
