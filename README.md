@@ -25,17 +25,17 @@ mv anigreeter $HOME/.local/bin/
 ## Usage
 ```bash
 # Get a random quote
-./anigreeter
+anigreeter
 
 # Get a quote from Naruto
-./anigreeter --anime naruto
+anigreeter --anime naruto
 
 # Get a quote from Luffy
-./anigreeter --character luffy
+anigreeter --character luffy
 
 # Short options work too
-./anigreeter -a one piece
-./anigreeter -c light
+anigreeter -a one piece
+anigreeter -c light
 # anigreeter help
 ```
 ## Cowsay integration && lolcat(optional)
