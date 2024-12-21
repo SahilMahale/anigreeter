@@ -9,6 +9,14 @@ It is very much in a its infancy, for now its a perl script.
 ## Preview
 ![Preview_Naruto](./assets/Naruto.png)
 
+## Dependencies
+- Perl (5 or greater)
+- cpan
+- cpanM
+```bash 
+cpanm --installdeps .
+```
+
 ## Installation
 ```bash
 git clone <this repo>
