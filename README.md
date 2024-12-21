@@ -22,7 +22,8 @@ cpanm --installdeps .
 git clone <this repo>
 cd animeQuotes
 chmod +x worker.pl 
-ln -s <abs-path>/worker.pl $HOME/.local/bin
+# for macs please do mkdir $HOME/.local/bin, then
+ln -s <abs-path>/worker.pl $HOME/.local/bin/animequotes
 ```
 
 ## Usage
