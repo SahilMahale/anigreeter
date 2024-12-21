@@ -7,7 +7,7 @@ A `fortune` inspired CLI utility that generates anime quotes either:
 It is very much in a its infancy, for now its a perl script.
 
 ## Preview
-[Preview_Naruto](./assets/Naruto.png)
+![Preview_Naruto](./assets/Naruto.png)
 
 ## Installation
 ```bash
