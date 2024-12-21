@@ -13,14 +13,13 @@ It is very much in a its infancy, for now its a perl script.
 - Perl (5 or greater)
 - cpan
 - cpanM
-```bash 
-cpanm --installdeps .
-```
 
 ## Installation
 ```bash
 git clone <this repo>
 cd animeQuotes
+#install the dependencies 
+cpanm --installdeps .
 chmod +x worker.pl 
 # for macs please do mkdir $HOME/.local/bin, then
 ln -s <abs-path>/worker.pl $HOME/.local/bin/animequotes
