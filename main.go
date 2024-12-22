@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/SahilMahale/anigreeter/src/cmd"
+	"github.com/SahilMahale/anigreeter/cmd"
 )
 
 func main() {
