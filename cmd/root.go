@@ -34,7 +34,7 @@ func init() {
 	RootCmd.Flags().StringVarP(&anime, "anime", "a", "", "Filters quotes based on the anime they are from")
 	RootCmd.Flags().StringVarP(&character, "character", "c", "", "Filters quotes based on the character that said it")
 	if isDevMode() {
-		RootCmd.Flags().BoolVarP(&seedEmbeddedDb, "seed", "s", false, "Seed the seed_embedded_db at once")
+		RootCmd.Flags().BoolVarP(&seedEmbeddedDb, "seed", "s", false, "Seed the embedded DB at once")
 	}
 }
 

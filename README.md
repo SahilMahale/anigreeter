@@ -9,6 +9,8 @@ A [fortune ](https://en.wikipedia.org/wiki/Fortune_(Unix)) inspired CLI utility 
 
 ## Dependencies
 - [Go lang (1.23.4 or Higher)](https://go.dev/doc/install)
+- [Gorm](https://gorm.io/docs)
+- [SQLite (v3)](https://www.sqlite.org/index.html)
 - [cobra](https://cobra.dev/)
 
 ## Installation
@@ -38,6 +40,21 @@ anigreeter -a one piece
 anigreeter -c light
 # anigreeter help
 ```
+## Development
+Most of its the same as [Installation](README#Installation),the changes in flow are:
+1. After `go mod tidy`, export the **ENV** variable for dev mode i.e. `export ANIGREETER_MODE=dev`
+2. To run the application:
+```bash
+# run the application
+go run main.go
+# to seed the embedded DB
+go run main.go -s
+# or
+go run main.go --seed
+```
+> **Note**: Please run `go run main.go` while in the root folder of the repo
+
+
 ## Cowsay integration && lolcat(optional)
 1. Install `cowsay`
 2. Install `lolcat` for RGB text
