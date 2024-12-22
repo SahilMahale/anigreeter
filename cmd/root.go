@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	quotegen "github.com/SahilMahale/anigreeter/src/cmd/quoteGen"
+	quotegen "github.com/SahilMahale/anigreeter/cmd/quoteGen"
 	"github.com/spf13/cobra"
 )
 
