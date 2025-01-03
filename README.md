@@ -15,11 +15,22 @@ A [fortune ](https://en.wikipedia.org/wiki/Fortune_(Unix)) inspired CLI utility 
 ```bash
 git clone <this repo>
 cd anigreeter
-#install the dependencies 
+#install the dependencies
 go mod tidy
 go build .
 # for macs please do mkdir $HOME/.local/bin, then
-mv anigreeter $HOME/.local/bin/ 
+mv anigreeter $HOME/.local/bin/
+```
+
+## Installation (Rust)
+
+```bash
+git clone <this repo>
+cd anigreeter
+# build the binary
+cargo build --release
+# for macOS, you may need to do `mkdir -p $HOME/.local/bin` before the next command
+mv target/release/anigreeter $HOME/.local/bin/
 ```
 
 ## Usage
@@ -42,7 +53,7 @@ anigreeter -c light
 1. Install `cowsay`
 2. Install `lolcat` for RGB text
 3. After that you can copy over the `cowsay sprites` in sprites folder to `/usr/share/cowsay/site-cows/`
-   - For **macOS** sometimes its stored in `homebrew/Cellar`, Please execute `cowsay -l` it will tell you where the sprites folder is located 
+   - For **macOS** sometimes its stored in `homebrew/Cellar`, Please execute `cowsay -l` it will tell you where the sprites folder is located
 4. Usage: `anigreeter -c naruto | cowsay -f naruto`
 > Supported characters
 > 1. Naruto
