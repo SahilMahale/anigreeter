@@ -32,7 +32,7 @@ fn get_sqlite_store() -> Result<Box<QuoteStoreSqlite>, Box<dyn std::error::Error
     Ok(Box::new(store))
 }
 
-fn get_vec_store() -> Result<Box<QuoteStoreVec>, Box<dyn std::error::Error>> {
+fn get_vec_store() -> Result<Box<QuoteStoreVec>, std::io::Error> {
     let naruto = Name::full("Naruto", "Uzumaki");
     let light = Name::full("Light", "Yagami");
     let l = Name::first("L");
