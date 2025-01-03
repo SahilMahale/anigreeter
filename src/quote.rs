@@ -1,13 +1,16 @@
 use crate::Name;
 
-#[derive(Debug)]
-pub struct Quote<'a> {
+#[derive(Debug, Clone)]
+pub struct Quote {
     pub text: String,
-    pub character: &'a Name,
-    pub anime: &'a str,
+    pub character: Name,
+    pub anime: String,
 }
 
-impl std::fmt::Display for Quote<'_> {
+// TODO: Types: `Character` `Anime`
+// Allows capturing the relation between an `Anime` and its `Character`s.
+
+impl std::fmt::Display for Quote {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,

@@ -5,7 +5,7 @@ mod quote_store;
 use clap::Parser;
 
 use name::Name;
-use quote_store::{QuoteStore, QuoteStoreVec};
+use quote_store::{QuoteStore, QuoteStoreSqlite, QuoteStoreVec};
 
 #[derive(Parser, Debug)]
 #[command(name = "anigreeter")]
@@ -27,9 +27,12 @@ struct Cli {
     anime: Option<String>,
 }
 
-fn main() -> Result<(), std::io::Error> {
-    let cli = Cli::parse();
+fn get_sqlite_store() -> Result<Box<QuoteStoreSqlite>, Box<dyn std::error::Error>> {
+    let store = QuoteStoreSqlite::new("sqlite/quotes.db")?;
+    Ok(Box::new(store))
+}
 
+fn get_vec_store() -> Result<Box<QuoteStoreVec>, Box<dyn std::error::Error>> {
     let naruto = Name::full("Naruto", "Uzumaki");
     let light = Name::full("Light", "Yagami");
     let l = Name::first("L");
@@ -40,7 +43,19 @@ fn main() -> Result<(), std::io::Error> {
     quotes.add_quotes_from_file("quotes/light.txt", &light, "Death Note")?;
     quotes.add_quotes_from_file("quotes/l.txt", &l, "Death Note")?;
 
-    let quote = match (cli.anime, cli.character) {
+    Ok(Box::new(quotes))
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let cli = Cli::parse();
+
+    let mut quotes: Box<dyn QuoteStore> = if false {
+        get_vec_store()?
+    } else {
+        get_sqlite_store()?
+    };
+
+    let quote = match (&cli.anime, &cli.character) {
         (Some(name), None) => quotes.get_quote_by_anime(&name),
         (None, Some(name)) => quotes.get_quote_by_character(&name),
         (Some(anime), Some(character)) => quotes.get_quote_from(&anime, &character),
@@ -50,7 +65,7 @@ fn main() -> Result<(), std::io::Error> {
     match quote {
         Some(quote) => println!("{}", quote),
         None => eprintln!("No quote found :<"),
-    }
+    };
 
     Ok(())
 }

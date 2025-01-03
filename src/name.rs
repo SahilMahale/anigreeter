@@ -1,4 +1,4 @@
-#[derive(Debug, Eq)]
+#[derive(Debug, Clone, Eq)]
 pub struct Name {
     first: String,
     middle: Option<String>,
@@ -20,6 +20,10 @@ impl Name {
             last: None,
             middle: None,
         }
+    }
+
+    pub fn _contains(&self, s: &str) -> bool {
+        self.first == s || self.last.as_ref().filter(|&last| last == s).is_some()
     }
 }
 
