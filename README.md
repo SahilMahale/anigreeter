@@ -17,7 +17,7 @@ A [fortune ](https://en.wikipedia.org/wiki/Fortune_(Unix)) inspired CLI utility 
 ```bash
 git clone <this repo>
 cd anigreeter
-#install the dependencies 
+# install the dependencies 
 go mod tidy
 go build .
 # for macs please do mkdir $HOME/.local/bin, then
