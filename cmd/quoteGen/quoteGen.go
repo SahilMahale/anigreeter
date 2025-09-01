@@ -3,7 +3,6 @@ package quotegen
 import (
 	"fmt"
 	"math/rand/v2"
-	"strings"
 
 	"github.com/SahilMahale/anigreeter/quotes"
 )
@@ -11,40 +10,39 @@ import (
 type quoteGenService struct {
 	anime     string
 	character string
+	seedEmbDb bool
 }
 
-func NewQuoteGenService(anime, character string) quoteGenService {
+func NewQuoteGenService(anime, character string, seedEmbDb bool) quoteGenService {
 	return quoteGenService{
 		anime:     anime,
 		character: character,
+		seedEmbDb: seedEmbDb,
 	}
 }
 
 func (qg quoteGenService) GenerateQuote() error {
-	allQuotes := quotes.GetQuotes()
-	filteredQuotes := qg.filterQuotes(allQuotes)
+	if !qg.seedEmbDb {
 
-	if len(filteredQuotes) == 0 {
-		return fmt.Errorf("no quotes found matching your criteria")
+		filteredQuotes, err := quotes.GetQuotes("anime")
+		if err != nil {
+			return err
+		}
+
+		if len(filteredQuotes) == 0 {
+			return fmt.Errorf("no quotes found matching your criteria")
+		}
+
+		quote := filteredQuotes[rand.IntN(len(filteredQuotes))]
+		fmt.Printf("\"%s\"\n  - %s (%s)\n", quote.QuoteText, quote.Character, quote.Anime)
+	} else {
+		fmt.Print("Seeding start....")
+
+		err := quotes.SeedEmbeddedDb()
+		if err != nil {
+			return err
+		}
+		fmt.Printf("\nSeeding end\n")
 	}
-
-	quote := filteredQuotes[rand.IntN(len(filteredQuotes))]
-	fmt.Printf("\"%s\"\n  - %s (%s)\n", quote.Text, quote.Character, quote.Anime)
 	return nil
-}
-
-func (qg quoteGenService) filterQuotes(qts []quotes.Quote) []quotes.Quote {
-	filtered := []quotes.Quote{}
-
-	for _, q := range qts {
-		if q.Anime != "" && !strings.Contains(strings.ToLower(q.Anime), strings.ToLower(qg.anime)) {
-			continue
-		}
-		if q.Character != "" && !strings.Contains(strings.ToLower(q.Character), strings.ToLower(qg.character)) {
-			continue
-		}
-		filtered = append(filtered, q)
-	}
-
-	return filtered
 }
